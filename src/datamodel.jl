@@ -4,6 +4,7 @@ using PlotlyJS
 using Ipopt
 using JuMP
 
+# use stored GeneDrive.jl data 
 species = AedesAegypti                                          
 genetics = genetics_ridl();                                    
 enviro_response = stages_rossi();                               
@@ -13,9 +14,11 @@ temperature = example_temperature_timeseries;
 coordinates = (16.1820, 145.7210);                              
 node = Node(:YorkeysKnob, organisms, temperature, coordinates); 
 
+# helpers
 release_gene = get_homozygous_modified(node, species)
 wild_gene = get_wildtype(node, species)
 
+# define operational constraints 
 op_constraints = ReleaseStrategy(release_this_gene_index = release_gene,   
     release_this_life_stage = Male, 
     release_time_interval = 7, 
