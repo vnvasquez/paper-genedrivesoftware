@@ -10,32 +10,40 @@ node_futmed = Node(:NhaTrang, organisms, TimeSeriesTemperature(ext2037), coordin
 node_futhigh = Node(:NhaTrang, organisms, TimeSeriesTemperature(ext2039), coordinates);
 
 # natural pop fluctuations (no intervention)
-soldyn_histHI = solve_dynamic_model(node_histhigh, solver, tspan); 
-soldyn_histMED = solve_dynamic_model(node_histmed, solver, tspan); 
+soldyn_histHI = solve_dynamic_model(node_histhigh, solver, tspan);
+soldyn_histMED = solve_dynamic_model(node_histmed, solver, tspan);
 
-soldyn_futHI = solve_dynamic_model(node_futhigh, solver, tspan); 
-soldyn_futMED = solve_dynamic_model(node_futmed, solver, tspan); 
+soldyn_futHI = solve_dynamic_model(node_futhigh, solver, tspan);
+soldyn_futMED = solve_dynamic_model(node_futmed, solver, tspan);
 
 # grab control schedules prescribed by optimization 
 ############################################################################################
 # hist det
-times1, values1 = get_release_data(avgresults2000_target1[:node_1_organism_1_control_M].control_M_G3);
+times1, values1 =
+    get_release_data(avgresults2000_target1[:node_1_organism_1_control_M].control_M_G3);
 releases1 = Release(node_histmed, species, Male, release_gene, times1, values1);
 # hist stoch
-times2, values2 = get_release_data(results2000_int7lim50k[:node_1_organism_1_control_M].control_M_G3);
+times2, values2 =
+    get_release_data(results2000_int7lim50k[:node_1_organism_1_control_M].control_M_G3);
 releases2 = Release(node_histmed, species, Male, release_gene, times2, values2);
 # fut det
-times3, values3 = get_release_data(avgresults2030_target1[:node_1_organism_1_control_M].control_M_G3);
+times3, values3 =
+    get_release_data(avgresults2030_target1[:node_1_organism_1_control_M].control_M_G3);
 releases3 = Release(node_futmed, species, Male, release_gene, times3, values3);
 # fut stoch
-times4, values4 = get_release_data(results2030_int7lim50k[:node_1_organism_1_control_M].control_M_G3);
+times4, values4 =
+    get_release_data(results2030_int7lim50k[:node_1_organism_1_control_M].control_M_G3);
 releases4 = Release(node_futmed, species, Male, release_gene, times4, values4);
 # prob hist stoch 
-newtimes_hist, newvals_hist = get_release_data(newresults2000_int7lim50k[:node_1_organism_1_control_M].control_M_G3);
-newreleases_hist = Release(node_histhigh, species, Male, release_gene, newtimes_hist, newvals_hist);
+newtimes_hist, newvals_hist =
+    get_release_data(newresults2000_int7lim50k[:node_1_organism_1_control_M].control_M_G3);
+newreleases_hist =
+    Release(node_histhigh, species, Male, release_gene, newtimes_hist, newvals_hist);
 # prob fut stoch 
-newtimes_fut, newvals_fut = get_release_data(newresults2030_int7lim50k[:node_1_organism_1_control_M].control_M_G3);
-newreleases_fut = Release(node_futhigh, species, Male, release_gene, newtimes_fut, newvals_fut);
+newtimes_fut, newvals_fut =
+    get_release_data(newresults2030_int7lim50k[:node_1_organism_1_control_M].control_M_G3);
+newreleases_fut =
+    Release(node_futhigh, species, Male, release_gene, newtimes_fut, newvals_fut);
 
 # run dynamics with controls 
 ############################################################################################
@@ -74,4 +82,3 @@ newres_soldyn2hi = format_dynamic_model_results(node_histhigh, newsoldyn_2hi)
 # prob fut stoch 
 newsoldyn_4hi = solve_dynamic_model(node_futhigh, [newreleases_fut], solver, tspan);
 newres_soldyn4hi = format_dynamic_model_results(node_futhigh, newsoldyn_4hi)
-
