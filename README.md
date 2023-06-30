@@ -18,11 +18,7 @@ Make sure to install Julia in such a way that the Julia binary is on the `PATH`.
 
 We use HSL as the linear solver. You need to obtain a license and download `HSL_jll.jl` from https://licences.stfc.ac.uk/product/julia-hsl. You should get the LBT version.
 
-Once you downloaded `HSL_jll` you need to modify the project in this repository to use that version of `HSL_jll`. To do so, activate the project in this repository, and then in the package REPL run
-
-```
-pkg> dev <PATH TO YOUR DOWNLOAD OF HSL_JLL>
-```
+Once you downloaded `HSL_jll` you should put the content into `~/.julia/dev/HSL_jll`.
 
 ## Running the replication script
 
