@@ -100,3 +100,44 @@ tspan = (1,365)
 i = JuMP.optimizer_with_attributes(Ipopt.Optimizer,
     "linear_solver" =>  "ma86");
 solver = OrdinaryDiffEq.Tsit5();
+
+# objective 
+function solve_decision_model_scenarios(model::JuMP.Model,
+    objective_function::Type{<:TargetPercentageByDate};
+    wildtype=nothing, percent_suppression=nothing, target_timestep=nothing)
+
+    if isa(wildtype, Nothing) || isa(percent_suppression,Nothing) || isa(target_timestep,Nothing) 
+        @warn("Model not solved because the objective function is missing information. Values must be supplied for all keyword arguments: `wildtype` (Int64), `percent_suppression (Float64), and `target_timestep` (Int64).")
+    else
+            control_M = model[:control_M]
+            F = model[:F]
+            control_F = model[:control_F]
+            JuMP.fix.(control_F, 0.0; force=true)
+
+            sets = model.obj_dict[:Sets]
+            N = sets[:N]
+            O = sets[:O]
+            SF = sets[:SF]
+            G = sets[:G]
+            T = sets[:T]
+            C = sets[:C]
+            probabilities = model.ext[:Probabilities]
+
+            JuMP.@objective(model, Min, (
+                1e-8*sum(control_M) +
+                sum(probabilities[n][c]*
+                (F[n,c,o,s,wildtype,t] - percent_suppression*F[n,c,o,s,wildtype,1]).^2
+            for n in N, c in C, o in O, s in SF, t in T[target_timestep:end]))
+                )
+            JuMP.optimize!(model);
+
+            if termination_status(model) != OPTIMAL
+                @info("Termination status: $(termination_status(model))")
+                return model
+            else
+                println("Objective value:", objective_value(model))
+            end
+
+            return model
+    end
+end
