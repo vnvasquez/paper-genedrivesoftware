@@ -10,19 +10,19 @@ Affiliations:
 
 ## Hardware and software requirements
 
-You need to install [Julia](http://julialang.org/) to run the replication code. We tested this code on Julia version 1.9.1.
+To run the replication code, install [Julia](http://julialang.org/) in such a way that the Julia binary is on the `PATH`. 
 
-Make sure to install Julia in such a way that the Julia binary is on the `PATH`.
+This code was tested on Julia version 1.9.1.
 
 ## Linear Solver
 
-We use HSL as the linear solver. You need to obtain a license and download `HSL_jll.jl` from https://licences.stfc.ac.uk/product/julia-hsl. You should get the LBT version.
+HSL is the linear solver used in this work. Obtain a license and download `HSL_jll.jl` from https://licences.stfc.ac.uk/product/julia-hsl. Get the LBT version.
 
-Once you downloaded `HSL_jll` you should put the content into `~/.julia/dev/HSL_jll`.
+After downloading `HSL_jll`, put the content into `~/.julia/dev/HSL_jll`.
 
 ## Running the replication script
 
-To recreate all outputs and figures for this paper, open a OS shell and change into the folder where you downloaded the content of this replication repository. Then run the following command to compute all results:
+To recreate all outputs and figures for this paper, open an OS shell. Change into the folder where you downloaded the content of this replication repository, then run the following command to compute all results:
 
 ```
 julia src/main.jl
@@ -30,6 +30,6 @@ julia src/main.jl
 
 The script is configured such that it automatically downloads and installs any required Julia packages.
 
-## Result and figure files
+## Result files
 
-All results and figures will be stored in the folder `output`.
+All results will be stored in the folder `output`.
