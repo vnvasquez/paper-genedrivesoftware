@@ -22,7 +22,7 @@ After downloading `HSL_jll`, put the content into `~/.julia/dev/HSL_jll`.
 
 ## Running the replication script
 
-To recreate all outputs and figures for this paper, open an OS shell. Change into the folder where you downloaded the content of this replication repository, then run the following command to compute all results:
+To recreate the outputs for this paper, open an OS shell. Change into the folder where you downloaded the content of this replication repository, then run the following command to compute results:
 
 ```
 julia src/main.jl
@@ -32,4 +32,4 @@ The script is configured such that it automatically downloads and installs any r
 
 ## Result files
 
-All results will be stored in the folder `output`.
+Results will be stored in the folder `output`.
