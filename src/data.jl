@@ -102,6 +102,8 @@ i = JuMP.optimizer_with_attributes(Ipopt.Optimizer,
 solver = OrdinaryDiffEq.Tsit5();
 
 # objective 
+abstract type ObjectiveFunction end
+struct TargetPercentageByDate <: ObjectiveFunction end
 function solve_decision_model_scenarios(model::JuMP.Model,
     objective_function::Type{<:TargetPercentageByDate};
     wildtype=nothing, percent_suppression=nothing, target_timestep=nothing)
