@@ -6,6 +6,7 @@ using JuMP
 using CSV
 using DataFrames
 using Statistics
+import HSL_jll
 
 ############################################################################################
 #   TEMPERATURE DATA
@@ -98,7 +99,7 @@ tspan = (1,365)
 
 # algorithms 
 i = JuMP.optimizer_with_attributes(Ipopt.Optimizer,
-    "linear_solver" =>  "ma86");
+    "hsllib" => HSL_jll.libhsl_path, "linear_solver" =>  "ma86");
 solver = OrdinaryDiffEq.Tsit5();
 
 # objective 
