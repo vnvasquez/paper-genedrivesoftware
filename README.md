@@ -1,4 +1,4 @@
-# GeneDrive.jl: A Julian approach to simulating biological dynamics and control
+# GeneDrive.jl
 
 Code and data for initial paper submission.
 
