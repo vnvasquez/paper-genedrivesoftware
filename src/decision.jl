@@ -20,7 +20,7 @@ prob = GeneDrive.create_decision_model(
     node,
     tspan;
     node_strategy=mystrategy1,
-    species=species,
+    node_species=species,
     optimizer=i,
     slack_small=false,
 );
