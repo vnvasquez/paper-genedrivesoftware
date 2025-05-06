@@ -18,7 +18,7 @@ This code was tested on Julia version 1.8.5.
 
 HSL is the linear solver used in this work. Obtain a license and download `HSL_jll.jl` from https://licences.stfc.ac.uk/product/julia-hsl. Get the openblas version.
 
-After downloading HSL_jll, extract the content into the subfolder `packages` of this repository. You should then have a folder named `HSL_jll.jl-2023.5.26` in the `packages` folder. As a final step, you should rename that folder to `HSL_jll`.
+After downloading HSL_jll, extract the content into the subfolder `packages` of this repository. You should then have a folder named `HSL_jll.jl-year.month.day` in the `packages` folder. As a final step, you should rename that folder to `HSL_jll`.
 
 ## Running the replication script
 
