@@ -12,7 +12,7 @@ Affiliations:
 
 To run the replication code, install [Julia](http://julialang.org/) in such a way that the Julia binary is on the `PATH`. 
 
-This code was tested on Julia version 1.8.5.
+This code was tested on Julia version 1.11.
 
 ## Linear Solver
 
