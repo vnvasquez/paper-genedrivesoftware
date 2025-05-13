@@ -14,13 +14,15 @@ op_constraints1 = ReleaseStrategy(
     release_size_max_per_timestep=50000.0, # vol
 );
 
-mystrategy1 = Dict(1 => op_constraints1);
+mystrategy1 = [1 => op_constraints1]            
+my_node_strat = NodeStrategy(1, mystrategy1)    
+my_node_species = [species]                     
 
-prob = GeneDrive.create_decision_model(
+prob = GeneDrive.create_decision_model(         
     node,
     tspan;
-    node_strategy=mystrategy1,
-    node_species=species,
+    node_strategy=my_node_strat, 
+    node_species=my_node_species, 
     optimizer=i,
     slack_small=false,
 );
