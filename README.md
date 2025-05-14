@@ -1,12 +1,13 @@
 # GeneDrive.jl
 
-Code and data for initial paper submission.
+Code and data for paper submission.
 
-Authors: Váleri N. Vásquez<sup>1,2</sup>, David Anthoff<sup>1</sup>
+Authors: Váleri N. Vásquez<sup>1,2</sup>, Erin A. Mordecai<sup>1</sup>, David Anthoff<sup>3</sup>
 
 Affiliations: 
-1. Energy and Resources Group, Rausser College of Natural Resources, University of California Berkeley, CA, USA
-2. Department of Electrical Engineering and Computer Sciences, College of Engineering, University of California Berkeley, CA, USA
+1 Department of Biology, Stanford University, Stanford, CA, USA
+2 Center for International Security and Cooperation, Stanford, CA, USA
+3 Energy and Resources Group,  Rausser College of Natural Resources, University of California, Berkeley, CA, USA
 
 ## Hardware and software requirements
 
