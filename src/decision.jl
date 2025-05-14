@@ -7,15 +7,14 @@ temperature_2030avg = TimeSeriesTemperature(scenavg_2030)
 node = Node(:NhaTrang, organisms, temperature_2030avg, coordinates);
 
 # decision model: target1 (freq = 7), target2 (freq = 14)
-op_constraints1 = ReleaseStrategy(
+org_constraints1 = ReleaseStrategy(
     release_this_gene_index=release_gene,
     release_this_life_stage=Male,
     release_time_interval=14, # freq
     release_size_max_per_timestep=50000.0, # vol
 );
-
-mystrategy1 = [1 => op_constraints1]            
-my_node_strat = NodeStrategy(1, mystrategy1)    
+my_org_strat1 = [1 => org_constraints1]            
+my_node_strat = NodeStrategy(1, my_org_strat1)    
 my_node_species = [species]                     
 
 prob = GeneDrive.create_decision_model(         
@@ -64,20 +63,21 @@ avgresults2030_target2 = read_csvs_to_dict(stochresultspath, "futavgresults2030_
 node = Node(:NhaTrang, organisms, newscen2000, coordinates);
 
 # decision model
-op_constraints = ReleaseStrategy(
+org_constraints = ReleaseStrategy(
     release_this_gene_index=release_gene,
     release_this_life_stage=Male,
     release_time_interval=7,
     release_size_max_per_timestep=50000.0,
 );
-
-mystrategy = Dict(1 => op_constraints);
+my_org_strat = [1 => org_constraints]            
+my_node_strat = NodeStrategy(1, my_org_strat)    
+my_node_species = [species]    
 
 prob = GeneDrive.create_decision_model(
     node,
     tspan;
-    node_strategy=mystrategy,
-    species=species,
+    node_strategy=my_node_strat,
+    node_species=my_node_species,
     optimizer=i,
     slack_small=true,
 );
