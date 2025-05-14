@@ -18,7 +18,7 @@ update_population_size(enviro_response, 500);
 organisms = make_organisms(species, genetics, enviro_response); 
 
 # Define ecological data
-temperature = TimeSeriesTemperature(example_temperature_timeseries);   # revised name for `example_1997`       
+temperature = TimeSeriesTemperature(example_temperature_timeseries);   # revised name from original `example_1997`       
 
 # Specify the geographic coordinates
 coordinates = (12.2534, 109.1871);  
@@ -32,6 +32,7 @@ tspan = (1,365)
 ##################################################################################
 # Supplementary Information, Code Block 2: Creating and solving the dynamic model 
 ##################################################################################
+
 # Select solver 
 solver = OrdinaryDiffEq.Tsit5()              
 
