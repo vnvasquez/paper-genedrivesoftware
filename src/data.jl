@@ -89,7 +89,7 @@ temperature = TimeSeriesTemperature(scenavg_2000) #ext2005)
 species = AedesAegypti
 genetics = genetics_ridl()
 enviro_response = stages_rossi();
-update_population_size(enviro_response, 500);
+update_population_size!(enviro_response, 500);
 organisms = make_organisms(species, genetics, enviro_response);
 coordinates = (1.0, 1.0);
 node = Node(:NhaTrang, organisms, temperature, coordinates);
