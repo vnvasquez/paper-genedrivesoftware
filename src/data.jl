@@ -27,7 +27,7 @@ ext2001 = sort!(CSV.read(joinpath(@__DIR__, "..", "data","freqFINAL_heatwave_203
 ext2002 = sort!(CSV.read(joinpath(@__DIR__, "..", "data","freqFINAL_heatwave_2036_85_2030_hg.csv"), DataFrame),[:DoY])[:,:TAVG];
 ext2003 = sort!(CSV.read(joinpath(@__DIR__, "..", "data","freqFINAL_heatwave_2037_85_2030_hg.csv"), DataFrame),[:DoY])[:,:TAVG];
 ext2005 = sort!(CSV.read(joinpath(@__DIR__, "..", "data","freqFINAL_heatwave_2039_85_2030_hg.csv"), DataFrame),[:DoY])[:,:TAVG];
-scenariomat_2000 = DataFrame( # = hcat(
+scenariomat_2000 = DataFrame( 
     ext1997 = ext1997,
     ext1998 = ext1998,
     ext2001 = ext2001,
@@ -44,7 +44,7 @@ ext2035 = sort!(CSV.read(joinpath(@__DIR__, "..", "data", "freqFINAL_heatwave_20
 ext2036 = sort!(CSV.read(joinpath(@__DIR__, "..", "data", "freqFINAL_heatwave_2036_85_2030_hg.csv"), DataFrame),[:DoY])[:,:futureHeatwave];
 ext2037 = sort!(CSV.read(joinpath(@__DIR__, "..", "data", "freqFINAL_heatwave_2037_85_2030_hg.csv"), DataFrame),[:DoY])[:,:futureHeatwave];
 ext2039 = sort!(CSV.read(joinpath(@__DIR__, "..", "data", "freqFINAL_heatwave_2039_85_2030_hg.csv"), DataFrame),[:DoY])[:,:futureHeatwave];
-scenariomat_2030 = DataFrame( # = hcat(
+scenariomat_2030 = DataFrame( 
     ext2031 = ext2031,
     ext2032 = ext2032,
     ext2035 = ext2035,

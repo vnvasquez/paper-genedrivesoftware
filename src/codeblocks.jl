@@ -18,7 +18,7 @@ update_population_size!(enviro_response, 500);
 organisms = make_organisms(species, genetics, enviro_response); 
 
 # Define ecological data
-temperature = TimeSeriesTemperature(example_temperature_timeseries);   # revised name from original `example_1997`       
+temperature = TimeSeriesTemperature(ext1997);          
 
 # Specify the geographic coordinates
 coordinates = (12.2534, 109.1871);  
@@ -45,6 +45,9 @@ results_dyn = format_dynamic_model_results(node, dynamic_sol)
 
 ##################################################################################
 # Supplementary Information, Code Block 3: Creating and solving the decision model 
+###################################################################################
+
+# Code Block 3, Panel A:  Deterministic 
 ###################################################################################
 
 # Create operational constraints 
@@ -79,3 +82,44 @@ detopt_sol = solve_decision_model_scenarios(
 
 # Format all results for analysis
 results_det = format_decision_model_results(detopt_sol)
+
+
+# Code Block 3, Panel B: Stochastic 
+###################################################################################
+
+# Redefine temperature as multiple timeseries in a matrix
+scenariomat_2000 = Matrix(DataFrame(
+    ext1997,
+    ext1998,
+    ext2001,
+    ext2002,
+    ext2003,
+    ext2005))
+    
+probabilities_2000 = [0.1, 0.1, 0.1, 0.1, 0.1, 0.5]
+
+scenarios_2000 = ScenarioTemperature(
+    scenariomat_2000, 
+    probabilities_2000);    
+
+# Update node with new data 
+update_temperature!(node, ScenarioTemperature, scenarios_2000)
+
+# Parameterize 
+stochastic_prob = create_decision_model(
+    node, 
+    tspan; 
+    node_strategy = my_node_strat, 
+    node_species = my_node_species, 
+    optimizer = i)   
+
+# Solve 
+stochopt_sol = solve_decision_model_scenarios(
+    stochastic_prob, 
+    TargetPercentageByDate; 
+    wildtype = 1,
+    percent_suppression = .20, 
+    target_timestep = 200) 
+
+# Format all results for analysis
+results_stoch = format_decision_model_results(stochopt_sol)
