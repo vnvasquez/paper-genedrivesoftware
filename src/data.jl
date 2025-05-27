@@ -35,7 +35,7 @@ scenariomat_2000 = DataFrame(
     ext2003 = ext2003,
     ext2005 = ext2005,
     )
-    scenavg_2000 = row_averages(Matrix(scenariomat_2000))
+scenavg_2000 = row_averages(Matrix(scenariomat_2000))
 
 # 2030s
 ext2031 = sort!(CSV.read(joinpath(@__DIR__, "..", "data", "freqFINAL_heatwave_2031_85_2030_hg.csv"), DataFrame),[:DoY])[:,:futureHeatwave];
@@ -52,7 +52,7 @@ scenariomat_2030 = DataFrame(
     ext2037 = ext2037,
     ext2039 = ext2039,
     )
-    scenavg_2030 = row_averages(Matrix(scenariomat_2030))
+scenavg_2030 = row_averages(Matrix(scenariomat_2030))
 
 # variance: test on 2000
 varmat_2000 = Statistics.var.(eachcol(scenariomat_2000))
