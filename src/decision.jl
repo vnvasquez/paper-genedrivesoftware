@@ -36,24 +36,24 @@ soldec_target1 = solve_decision_model_scenarios(
 
 # save target1
 resultshistavg_target1 = GeneDrive.format_decision_model_results(soldec_target1)
-write_dict_to_csv(resultshistavg_target1, "histavgresults_target1", stochresultspath)
+write_dict_to_csv(resultshistavg_target1, "histavgresults_target1", output_path)
 
 resultsfutavg_target1_2030 = GeneDrive.format_decision_model_results(soldec_target1_2030)
-write_dict_to_csv(resultsfutavg_target1_2030, "futavgresults2030_target1", stochresultspath)
+write_dict_to_csv(resultsfutavg_target1_2030, "futavgresults2030_target1", output_path)
 
 # save target2
 resultshistavg_target2 = GeneDrive.format_decision_model_results(soldec_target2)
-write_dict_to_csv(resultshistavg_target2, "histavgresults_target2", stochresultspath)
+write_dict_to_csv(resultshistavg_target2, "histavgresults_target2", output_path)
 
 resultsfutavg_target2_2030 = GeneDrive.format_decision_model_results(soldec_target2_2030)
-write_dict_to_csv(resultsfutavg_target2_2030, "futavgresults2030_target2", stochresultspath)
+write_dict_to_csv(resultsfutavg_target2_2030, "futavgresults2030_target2", output_path)
 
 # grab as needed 
-avgresults2000_target1 = read_csvs_to_dict(stochresultspath, "histavgresults_target1")
-avgresults2030_target1 = read_csvs_to_dict(stochresultspath, "futavgresults2030_target1")
+avgresults2000_target1 = read_csvs_to_dict(output_path, "histavgresults_target1")
+avgresults2030_target1 = read_csvs_to_dict(output_path, "futavgresults2030_target1")
 
-avgresults2000_target2 = read_csvs_to_dict(stochresultspath, "histavgresults_target2")
-avgresults2030_target2 = read_csvs_to_dict(stochresultspath, "futavgresults2030_target2")
+avgresults2000_target2 = read_csvs_to_dict(output_path, "histavgresults_target2")
+avgresults2030_target2 = read_csvs_to_dict(output_path, "futavgresults2030_target2")
 
 ############################################################################################
 #  OPTIMIZATION: STOCHASTIC (both freq + vol constraints)
@@ -101,8 +101,8 @@ newresults2030_int7lim50k =
     GeneDrive.format_decision_model_results(sol_newscen2030_int7lim50k)
 
 # grab as needed 
-results2000_int7lim50k = read_csvs_to_dict(stochresultspath, "results2000_int7lim50k")
-results2030_int7lim50k = read_csvs_to_dict(stochresultspath, "results2030_int7lim50k")
+results2000_int7lim50k = read_csvs_to_dict(output_path, "results2000_int7lim50k")
+results2030_int7lim50k = read_csvs_to_dict(output_path, "results2030_int7lim50k")
 
-newresults2000_int7lim50k = read_csvs_to_dict(stochresultspath, "newresults2000_int7lim50k")
-newresults2030_int7lim50k = read_csvs_to_dict(stochresultspath, "newresults2030_int7lim50k")
+newresults2000_int7lim50k = read_csvs_to_dict(output_path, "newresults2000_int7lim50k")
+newresults2030_int7lim50k = read_csvs_to_dict(output_path, "newresults2030_int7lim50k")
