@@ -72,6 +72,10 @@ highest_2030 = sorted_results[end]
 lowest_2030 = sorted_results[1]
 median_2030 = sorted_results[Int(round(length(sorted_results) / 2))]
 
+# assume same probability for all 
+samescen2000 = ScenarioTemperature(Matrix(scenariomat_2000), probabilities);
+samescen2030 = ScenarioTemperature(Matrix(scenariomat_2030), probabilities);
+
 # assume "worst case" (highest variance = 50% probability)
 newprobabilities_2000 = [0.1, 0.1, 0.1, 0.1, 0.1, 0.5]
 newprobabilities_2030 = [0.1, 0.1, 0.1, 0.1, 0.1, 0.5]
