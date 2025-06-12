@@ -58,7 +58,7 @@ org_constraints = ReleaseStrategy(release_this_gene_index = 3,
     
 # Assign operational constraints: organism & node of interest (organism = 1, node = 1) 
 my_org_strat = [1 => org_constraints]            
-my_node_strat = NodeStrategy(1, mystrategy)    
+my_node_strat = NodeStrategy(1, my_org_strat)    
 my_node_species = [species]    
 
 # Select solver(s) 
