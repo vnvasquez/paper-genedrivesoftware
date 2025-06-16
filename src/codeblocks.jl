@@ -89,12 +89,12 @@ results_det = format_decision_model_results(detopt_sol)
 
 # Redefine temperature as multiple timeseries in a matrix
 scenariomat_2000 = Matrix(DataFrame(
-    ext1997,
-    ext1998,
-    ext2001,
-    ext2002,
-    ext2003,
-    ext2005))
+    ext1997 = ext1997,
+    ext1998 = ext1998,
+    ext2001 = ext2001,
+    ext2002 = ext2002,
+    ext2003 = ext2003,
+    ext2005 = ext2005))
     
 probabilities_2000 = [0.1, 0.1, 0.1, 0.1, 0.1, 0.5]
 

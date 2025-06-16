@@ -33,7 +33,7 @@ scenariomat_2000 = DataFrame(
     ext2001 = ext2001,
     ext2002 = ext2002,
     ext2003 = ext2003,
-    ext2005 = ext2005,
+    ext2005 = ext2005
     )
 scenavg_2000 = row_averages(Matrix(scenariomat_2000))
 
@@ -50,7 +50,7 @@ scenariomat_2030 = DataFrame(
     ext2035 = ext2035,
     ext2036 = ext2036,
     ext2037 = ext2037,
-    ext2039 = ext2039,
+    ext2039 = ext2039
     )
 scenavg_2030 = row_averages(Matrix(scenariomat_2030))
 
