@@ -17,7 +17,7 @@ This code was tested on Julia version 1.11.
 
 ## Linear Solver
 
-HSL is the linear solver used in this work. Obtain a license and download `HSL_jll.jl` from https://licences.stfc.ac.uk/product/julia-hsl. Get the openblas version.
+HSL is the linear solver used in this work. Obtain a license and download `HSL_jll.jl` from https://licences.stfc.ac.uk/product/julia-hsl. Get the LBT version. This code requires version v2024.11.28.
 
 After downloading HSL_jll, extract the content into the subfolder `packages` of this repository. You should then have a folder named `HSL_jll.jl-year.month.day` in the `packages` folder. As a final step, you should rename that folder to `HSL_jll`.
 
