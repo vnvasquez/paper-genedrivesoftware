@@ -8,3 +8,9 @@ JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
 OrdinaryDiffEq = "1dea7af3-3e70-54e6-95c3-0bf5283fa5ed"
 PlotlyJS = "f0f68f2c-4968-5e81-91da-67840de0976a"
 Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+
+[extras]
+BundleProjects = "6369bb9e-c582-4516-b24f-7929d397a5c5"
+
+[preferences.BundleProjects]
+packages = ["GeneDrive"]
