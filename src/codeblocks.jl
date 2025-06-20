@@ -82,7 +82,7 @@ detopt_sol = solve_decision_model_scenarios(
 
 # Format all results for analysis
 results_det = format_decision_model_results(detopt_sol)
-
+write_dict_to_csv(results_det, "results_det", output_path)
 
 # Code Block 3, Panel B: Stochastic 
 ###################################################################################
@@ -123,3 +123,4 @@ stochopt_sol = solve_decision_model_scenarios(
 
 # Format all results for analysis
 results_stoch = format_decision_model_results(stochopt_sol)
+write_dict_to_csv(results_stoch, "results_stoch", output_path)
