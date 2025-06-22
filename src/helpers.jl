@@ -11,6 +11,21 @@ function write_dict_to_csv(mydict::Dict, category, mypath::String)
     end
 end
 
+function write_dynamicdict_to_csv(mydict::Dict, category, mypath::String)
+    mydict = mydict["AedesAegypti"] # NB: Species specific 
+    for (key, value) in mydict
+        name = "$(category)_$(key).csv"
+        if key == :Time
+            value = DataFrame(Time = value)
+            CSV.write(joinpath(mypath,name), value)
+        else
+            value = mydict[key]
+            CSV.write(joinpath(mypath,name), value)
+        end
+    end
+end
+
+
 function read_csvs_to_dict(mypath::String, category::String)
     @show category
     result_dict = Dict{Symbol, Any}()
