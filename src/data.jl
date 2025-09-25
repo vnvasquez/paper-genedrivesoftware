@@ -102,8 +102,12 @@ wild_gene = get_wildtype(node, species)
 tspan = (1,365)
 
 # algorithms 
-i = JuMP.optimizer_with_attributes(Ipopt.Optimizer,
-    "hsllib" => HSL_jll.libhsl_path, "linear_solver" =>  "ma86");
+i = JuMP.optimizer_with_attributes(
+        Ipopt.Optimizer,
+        "hsllib" => HSL_jll.libhsl_path, 
+        "linear_solver" =>  "ma86"
+        ); 
+
 solver = OrdinaryDiffEq.Tsit5();
 
 # objective 
