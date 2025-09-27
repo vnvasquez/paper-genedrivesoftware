@@ -241,7 +241,7 @@ sol_2030_int7lim50k = solve_decision_model_scenarios(
 # save future: freq = 7, vol = 50k 
 results2030_int7lim50k = GeneDrive.format_decision_model_results(sol_2030_int7lim50k)
 write_dict_to_csv(results2030_int7lim50k, "results2030_int7lim50k", output_path)
-results2000_int7lim50k = read_csvs_to_dict(output_path, "results2030_int7lim50k")
+results2030_int7lim50k = read_csvs_to_dict(output_path, "results2030_int7lim50k")
 
 
 ############################################################################################
