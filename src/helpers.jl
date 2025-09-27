@@ -41,7 +41,7 @@ function save_dynamic_solution(node::Node, sol1, title, mypath)
 end 
 
 
-function Fig5ab_dynamics(node::Node, sol1, sol2, title, tspan, mypath)
+function Fig5ab_dynamics(node::Node, sol1, sol2, title, mypath)
     results1 = format_dynamic_model_results(node, sol1)
     results2 = format_dynamic_model_results(node, sol2)
     ridl_base_F_1_sol1 = []

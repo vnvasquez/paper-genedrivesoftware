@@ -18,10 +18,10 @@ soldyn_futMED = solve_dynamic_model(node_futmed, solver, tspan);
 
 # include baseline dynamic figure (Fig5a, Fig5b)
 title_Fig5a = "Fig5a: Historical Temperature Regimes (Natural Dynamics)"
-Fig5ab_dynamics(node, soldyn_histMED, soldyn_histHI, title_Fig5a, tspan, output_path)
+Fig5ab_dynamics(node, soldyn_histMED, soldyn_histHI, title_Fig5a, output_path)
 
 title_Fig5b = "Fig5b: Future Temperature Regimes (Natural Dynamics)"
-Fig5ab_dynamics(node, soldyn_futMED, soldyn_futHI, title_Fig5b, tspan, output_path)
+Fig5ab_dynamics(node, soldyn_futMED, soldyn_futHI, title_Fig5b, output_path)
 
 # grab control schedules prescribed by optimization 
 ############################################################################################
