@@ -2,7 +2,7 @@ import Pkg
 Pkg.activate(joinpath(@__DIR__, ".."))
 Pkg.instantiate()
 output_path = joinpath(@__DIR__, "..", "output")
-mkpath(output_path)  # Ensure exists
+mkpath(output_path)  
 
 include("data.jl")
 include("helpers.jl")

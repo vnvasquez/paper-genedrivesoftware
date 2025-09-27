@@ -11,10 +11,16 @@ node_futhigh = Node(:NhaTrang, organisms, TimeSeriesTemperature(ext2039), coordi
 
 # natural pop fluctuations (no intervention)
 soldyn_histHI = solve_dynamic_model(node_histhigh, solver, tspan);
+save_dynamic_solution(node_histhigh, soldyn_histHI, "res_soldyn0histhi", output_path)
+
 soldyn_histMED = solve_dynamic_model(node_histmed, solver, tspan);
+save_dynamic_solution(node_histmed, soldyn_histMED, "res_soldyn0histmed", output_path)
 
 soldyn_futHI = solve_dynamic_model(node_futhigh, solver, tspan);
+save_dynamic_solution(node_futhigh, soldyn_futHI, "res_soldyn0futhi", output_path)
+
 soldyn_futMED = solve_dynamic_model(node_futmed, solver, tspan);
+save_dynamic_solution(node_futmed, soldyn_futMED, "res_soldyn0futmed", output_path)
 
 # include baseline dynamic figure (Fig5a, Fig5b)
 title_Fig5a = "Fig5a: Historical Temperature Regimes (Natural Dynamics)"
@@ -56,7 +62,7 @@ newreleases_fut =
 ############################################################################################
 # hist det 
 soldyn_1med = solve_dynamic_model(node_histmed, [releases1], solver, tspan);
-save_dynamic_solution(node_histmed, soldyn_histMED, "res_soldyn1med", output_path)
+save_dynamic_solution(node_histmed, soldyn_1med, "res_soldyn1med", output_path)
 
 soldyn_1hi = solve_dynamic_model(node_histhigh, [releases1], solver, tspan);
 save_dynamic_solution(node_histhigh, soldyn_1hi, "res_soldyn1hi", output_path)
