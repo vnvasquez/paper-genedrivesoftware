@@ -154,13 +154,6 @@ soldec_target2_2030 = solve_decision_model_scenarios(
 resultsfutavg_target2_2030 = GeneDrive.format_decision_model_results(soldec_target2_2030)
 write_dict_to_csv(resultsfutavg_target2_2030, "futavgresults2030_target2", output_path)
 
-# grab as needed 
-avgresults2000_target1 = read_csvs_to_dict(output_path, "histavgresults_target1")
-avgresults2030_target1 = read_csvs_to_dict(output_path, "futavgresults2030_target1")
-
-avgresults2000_target2 = read_csvs_to_dict(output_path, "histavgresults_target2")
-avgresults2030_target2 = read_csvs_to_dict(output_path, "futavgresults2030_target2")
-
 ############################################################################################
 #  OPTIMIZATION: STOCHASTIC (both freq + vol constraints)
 ############################################################################################
@@ -203,7 +196,6 @@ sol_2000_int7lim50k = solve_decision_model_scenarios(
 # save historic: freq = 7, vol = 50k 
 results2000_int7lim50k = GeneDrive.format_decision_model_results(sol_2000_int7lim50k)
 write_dict_to_csv(results2000_int7lim50k, "results2000_int7lim50k", output_path)
-results2000_int7lim50k = read_csvs_to_dict(output_path, "results2000_int7lim50k")
 
 ############################################################################################
 
@@ -241,8 +233,6 @@ sol_2030_int7lim50k = solve_decision_model_scenarios(
 # save future: freq = 7, vol = 50k 
 results2030_int7lim50k = GeneDrive.format_decision_model_results(sol_2030_int7lim50k)
 write_dict_to_csv(results2030_int7lim50k, "results2030_int7lim50k", output_path)
-results2030_int7lim50k = read_csvs_to_dict(output_path, "results2030_int7lim50k")
-
 
 ############################################################################################
 
@@ -280,7 +270,6 @@ sol_newscen2000_int7lim50k = solve_decision_model_scenarios(
 # save historic: highest prob = most variable year
 newresults2000_int7lim50k = GeneDrive.format_decision_model_results(sol_newscen2000_int7lim50k)
 write_dict_to_csv(newresults2000_int7lim50k, "newresults2000_int7lim50k", output_path)
-newresults2000_int7lim50k = read_csvs_to_dict(output_path, "newresults2000_int7lim50k")
 
 ############################################################################################
 
@@ -318,4 +307,3 @@ sol_newscen2030_int7lim50k = solve_decision_model_scenarios(
 # save future: highest prob = most variable year    
 newresults2030_int7lim50k = GeneDrive.format_decision_model_results(sol_newscen2030_int7lim50k)
 write_dict_to_csv(newresults2030_int7lim50k, "newresults2030_int7lim50k", output_path)
-newresults2030_int7lim50k = read_csvs_to_dict(output_path, "newresults2030_int7lim50k")

@@ -33,28 +33,28 @@ Fig5ab_dynamics(node, soldyn_futMED, soldyn_futHI, title_Fig5b, output_path)
 ############################################################################################
 # hist det
 times1, values1 =
-    get_release_data(avgresults2000_target1[:data].control_M_G3);
+    get_release_data(resultshistavg_target1[:node_1_organism_1_control_M].control_M_G3);
 releases1 = Release(node_histmed, species, Male, release_gene, times1, values1);
 # hist stoch
 times2, values2 =
-    get_release_data(results2000_int7lim50k[:data].control_M_G3);
+    get_release_data(results2000_int7lim50k[:node_1_organism_1_control_M].control_M_G3);
 releases2 = Release(node_histmed, species, Male, release_gene, times2, values2);
 # fut det
 times3, values3 =
-    get_release_data(avgresults2030_target1[:data].control_M_G3);
+    get_release_data(resultsfutavg_target1_2030[:node_1_organism_1_control_M].control_M_G3);
 releases3 = Release(node_futmed, species, Male, release_gene, times3, values3);
 # fut stoch
 times4, values4 =
-    get_release_data(results2030_int7lim50k[:data].control_M_G3);
+    get_release_data(results2030_int7lim50k[:node_1_organism_1_control_M].control_M_G3);
 releases4 = Release(node_futmed, species, Male, release_gene, times4, values4);
 # prob hist stoch 
 newtimes_hist, newvals_hist =
-    get_release_data(newresults2000_int7lim50k[:data].control_M_G3);
+    get_release_data(newresults2000_int7lim50k[:node_1_organism_1_control_M].control_M_G3);
 newreleases_hist =
     Release(node_histhigh, species, Male, release_gene, newtimes_hist, newvals_hist);
 # prob fut stoch 
 newtimes_fut, newvals_fut =
-    get_release_data(newresults2030_int7lim50k[:data].control_M_G3);
+    get_release_data(newresults2030_int7lim50k[:node_1_organism_1_control_M].control_M_G3);
 newreleases_fut =
     Release(node_futhigh, species, Male, release_gene, newtimes_fut, newvals_fut);
 

@@ -11,17 +11,6 @@ function write_dict_to_csv(mydict::Dict, category, mypath::String)
     end
 end
 
-function read_csvs_to_dict(mypath::String, category::String)
-    result_dict = Dict{Symbol, Any}()
-    csv_files = filter(x -> occursin("$(category)", x), readdir(mypath))
-
-        for file_name in csv_files
-            df = CSV.read(joinpath(mypath, file_name), DataFrame)
-            result_dict[:data] = ncol(df) == 1 ? df[!, 1] : df
-        end
-    return result_dict
-end
-
 function save_dynamic_solution(node::Node, sol1, title, mypath)
     results1 = format_dynamic_model_results(node, sol1)
     ridl_base_F_1_sol1 = []
